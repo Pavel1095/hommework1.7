@@ -6,6 +6,10 @@ public class Main {
 
         int ckientOs = 0;
         main.checkAndPrintSuitableVersionOs(ckientOs, year);
+
+        int deliveryDistance = 50;
+        System.out.println(main.calculateDeliveryDays(deliveryDistance) + " дня/ей");
+
     }
 
     public void isLeapYearAndPrint(int year) {
@@ -27,6 +31,18 @@ public class Main {
             System.out.println("Вам нужна lite-версия для Android");
         }else{
             System.out.println("Ваша ОС не обслуживвается");
+        }
+    }
+
+    public int calculateDeliveryDays(int distance) {
+        if (distance < 20 && distance > 0) {
+            return 1;
+        }else if (distance < 60 && distance >= 20) {
+            return 2;
+        }else if (distance < 100 && distance >= 60) {
+            return 3;
+        }else{
+            throw new RuntimeException("Доставка невозможна.");
         }
     }
 }
